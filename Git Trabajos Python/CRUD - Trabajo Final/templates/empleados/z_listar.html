@@ -1,0 +1,33 @@
+{% include 'empleados/z_cabecera.html' %}
+<div class="container">
+    <div class="item">
+        <h5>LISTAR REGISTRO DE EMPLEADOS</h5><br><br>
+    </div>
+</div>
+<br><hr>
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{empleado[0]}}</td>
+            <td><img width="60" src="uploads/{{empleado[3]}}" alt="Imágen del empleado"></td>
+            <td>{{empleado[1]}}</td>
+            <td>{{empleado[2]}}</td>
+            <td><a class="btn btn-warning"  href="/z_editar/{{empleado[0]}}">Editar</a> |
+                <a class="btn btn-danger" href="/z_borrar/{{empleado[0]}}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% include 'empleados/z_pie.html' %}
