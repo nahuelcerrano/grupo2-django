@@ -1,0 +1,24 @@
+{% include 'empleados/z_cabecera.html' %}
+
+<form method="post" action="/destroy/{{empleados[0][0]}}" enctype="multipart/form-data">
+
+    <h5>ELIMINAR DATOS DE UN EMPLEADO</h5><br>
+
+    Identificación Empl.->
+    <input type="text" value="{{ empleados[0][0] }}" name="txtID" id="txtID" readonly><br><br>
+
+    Nombre------------->
+    <input type="text" value="{{ empleados[0][1] }}" name="txtNombre" id="txtNombre" readonly><br><br>
+
+    Correo-------------->
+    <input type="text" value="{{ empleados[0][2] }}" name="txtCorreo" id="txtCorreo" readonly><br><br>
+
+    Foto---------------->    
+    <img width="80" src="{{url_for('uploads', nombreFoto=empleados[0][3])}}" alt="Imágen del empleado">
+    <br><br>
+    
+
+</form>
+Confirmar BORRAR--> <a class="btn btn-danger" href="/destroy/{{empleados[0][0]}}">Eliminar</a>
+
+{% include 'empleados/z_pie.html' %}

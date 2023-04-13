@@ -1,0 +1,28 @@
+{% include 'empleados/z_cabecera.html' %}
+
+
+    <div class="container">
+        <div class="item">
+            <h5>EDITAR DATOS DE UN EMPLEADO</h5><br><br>
+        </div>
+    </div>
+    <br><hr>
+<form method="post" action="/update" enctype="multipart/form-data">
+    Identificación Empl.->
+    <input type="text" value="{{ empleados[0][0] }}" name="txtID" id="txtID" readonly><br><br>
+
+    Modificar Nombre-->
+    <input type="text" value="{{ empleados[0][1] }}" name="txtNombre" id="txtNombre"><br><br>
+
+    Modificar Correo--->
+    <input type="text" value="{{ empleados[0][2] }}" name="txtCorreo" id="txtCorreo"><br><br>
+
+    Cambiar Foto------>    
+    <img width="80" src="{{url_for('uploads', nombreFoto=empleados[0][3])}}" alt="Imágen del empleado">
+    <input type="file" name="txtFoto" id="txtFoto"><br><br>
+    Confirmar Cambios->
+    <input type="submit" value="Guardar">
+
+</form>
+
+{% include 'empleados/z_pie.html' %}
