@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def init(request):
     return render(request, 'Principal/inicio.html')
+
+
+def contacto(request):
+    return render(request, 'Principal/contacto.html')
