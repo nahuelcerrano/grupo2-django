@@ -1,27 +1,27 @@
-{% extends 'Principal/base.html' %}
-{% block titulo %}Maxi Ferreteria Formulario de Contacto{% endblock titulo %}
+{% extends 'principal/base.html' %}
+{% block titulo %}Formulario de Contacto{% endblock titulo %}
 {% block contacto %}
 
-<div class="contenedorContacto justify-content-around row align-items-center " >
+<div class="contenedorContacto my-5" >
 
     <form class="col-6 text-center  justify-content-around">
         <div class="form-group col-12 justify-content-around">
-          <label for="nombreContacto" class="text-center">Nombre:</label>
+          <label for="nombreContacto" class="text-center text-body">Nombre:</label>
           <input type="email" class="form-control text-center" id="nombreContacto" placeholder="Escriba su nombre aqui" required>
         </div>
         <div class="form-group col-12 ">
-            <label for="emailContacto" class="text-center">Email:</label>
+            <label for="emailContacto" class="text-center text-body">Email:</label>
             <input type="email" class="form-control text-center" id="emailContacto" placeholder="name@example.com" required>
         </div>
           <div class="form-group col-12 text-center">
-            <label for="telefonoContacto" class="text-center">Telefono:</label>
+            <label for="telefonoContacto" class="text-center text-body">Telefono:</label>
             <input type="email" class="form-control text-center" id="telefonoContacto" placeholder="Ejemplo 011 5555 5555" required>
         </div>
        
         <div class="form-group col-12 text-center">
-          <label for="mensajeContacto">Mensaje:</label>
-          <textarea class="form-control" id="mensajeContacto" rows="3" required></textarea>
-          <button class="btn btn-primary" type="submit">Enviar Consulta</button>
+          <label for="mensajeContacto" class='text-body'>Mensaje:</label>
+          <textarea class="form-control" id="mensajeContacto" rows="3" placeholder='Deje su comentario acá' required></textarea>
+          <button class="btn btn-primary m-4" type="submit">Enviar Consulta</button>
         </div>
       </form>
 </div>
