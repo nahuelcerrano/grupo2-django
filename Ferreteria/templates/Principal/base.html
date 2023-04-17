@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% comment %} <script src="{{url_for('static', filename='index.js') }}" defer></script> <!-- link JS   CAMBIAR A DJANGO     -->  {% endcomment %}
+    <!-- link Bootstrap--><!-- CAMBIAR A DJANGO-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+    {% comment %} <link rel="STYLESHEET" href="/static/styles.css"> <!-- CAMBIAR A DJANGO-->
+    <script src="sweetalert2.all.min.js"></script> <!-- CAMBIAR A DJANGO--> {% endcomment %}
+    <title>{% block titulo %}{% endblock titulo %}</title>
+</head>
+<body>
+
+
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-light justify-content-center sticky-top">
+        <a class="navbar-brand" href="/">Inicio</a> 
+        <ul class="navbar-nav pull-md-left">
+           <li class="nav-item">
+            <form class="form-inline pull-md-left" action="/mono" method="post" enctype="multipart/form-data">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="palabraBuscar" id="palabraBuscar">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+          </li>
+          <li class="nav-item">
+            {% load static %}
+            <img src="{% static 'cart.jpeg' %}" alt="carrito" class="imgCarrito nav-item" width="10%"  type="button" data-toggle="modal" data-target="#exampleModal" id="btnModalBoot">
+          </li>
+          <li>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <button class="navbar-toggler" id="hamburguesaLineas"  type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </li>
+         <li> <!-- HAMBURGUESA LINEAS -->
+            <div class="pos-f-t ">
+              <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-light p-4 justify-content-center" id="btnsLineas">
+                  <form method="POST" action="/seleccion" enctype="multipart/form-data"> 
+                  {% for linea in lineas %}
+                    
+                  <input class="btn btn-info btn-xs"  type="submit" formenctype="multipart/form-data"  formmethod="post"   value="{{linea.linea}}" name="Name">
+                  
+                  {% endfor %}
+                  </form>
+       
+                </div>
+              </div>
+            </li>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <li class="nav-item pull-md-left">
+             
+            <a class="navbar-brand" href="#" target="_blank">Tel: 1122335566 <span class="sr-only">(current)</span></a>
+          </li> 
+          <li class="nav-item pull-md-left">
+            
+              <a class="navbar-brand" href="contacto">Contacto <span class="sr-only">(current)</span></a>
+            </li> 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Panel Administrador
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <form method="post" action="/admin" enctype="multipart/form-data">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                      </div>
+                      <input type="text" name="Usuario" id="Usuario"  placeholder="Usuario" >
+                    </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" >Password</label>
+                    <input type="password"  name="Password" id="Password">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+              </div>
+            </li>   
+          </div>
+        </ul>
+       
+      </nav>
+      
+      <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="btnModalBoot">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"  style="max-width: 90%;">
+    <div class="modal-content" >
+      <div class="modal-header"><h2 class="justify-content-center">Carro de Pedidos</h2>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <div class="container-fluid" id="modalBootstrap"  >   
+          <!--aca se muestra el pedido en el carro -->
+          
+        </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col-1 mw-100 text-center" id="totalCarro">
+          </div>
+       </div>
+       <div id="terminarPedido" style="display:none ;" >
+        <form>
+          <div class="row justify-content-center">   
+          <div class="form-group col-3">
+            <label for="formGroupExampleInput" class="labelForm">Nombre</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
+          </div>
+          <div class="form-group col-3">
+            <label for="formGroupExampleInput2" class="labelForm">Email</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="ejemplo@email.com">
+          </div>
+          </div>
+          <div class="row justify-content-center"><button type="input" class="btn btn-warning">Confirmar Y Enviar</button></div>
+        </form>
+       <div class="row justify-content-center"><button class="btn btn-dark" id="btnVolver">Volver</button></div>
+       </div>
+
+          <div  class="row justify-content-center" id="botonesEnviar">
+          <a class="btn btn-success"  id="btnEnviarPedido">Enviar Pedido</a><button class="btn btn-dark" id="vaciarCarrito">Vaciar Carrito</button>
+          </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+{% block cartelPrincipal %}{% endblock cartelPrincipal %}
+{% block contacto %}{% endblock contacto %}
+
+
+ 
+
+{% include 'Principal/footer.html' %}
+ 
+</body>
+</html>
