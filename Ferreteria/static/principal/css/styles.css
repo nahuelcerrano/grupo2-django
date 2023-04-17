@@ -15,6 +15,11 @@ body {
   font-family: 'Bebas Neue', cursive;
 }
 
+.custom_row{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 .contenedorContacto {
   display: flex;
   justify-content: center;
