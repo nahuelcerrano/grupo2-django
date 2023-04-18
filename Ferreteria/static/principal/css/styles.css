@@ -10,6 +10,15 @@ body {
   color: #000;
 }
 
+.e {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-shadow: 1px 2px 3px black;
+}
+
 .logo {
   cursor: pointer;
   font-family: 'Bebas Neue', cursive;
