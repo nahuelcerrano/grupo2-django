@@ -1,40 +1,17 @@
 from pathlib import Path
 import environ
-<<<<<<< HEAD
-
-env = environ.Env()
-# reading .env file
-environ.Env.read_env()
-
-# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-# SECRET_KEY = env("SECRET_KEY")
-SECRET_KEY = env("SECRET_KEY", default="unsafe-secret-key")
-=======
 import os
 
 env = environ.Env()
->>>>>>> nahuel_branch
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
 
-<<<<<<< HEAD
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-n*wblj7uein9_$rlq@^n^*nqs0u-5irwwq&&!hc)m)=_#9g6n%'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-=======
->>>>>>> nahuel_branch
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 
 # Application definition
 
