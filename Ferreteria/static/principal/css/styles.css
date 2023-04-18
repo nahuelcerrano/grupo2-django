@@ -34,4 +34,32 @@ body {
   justify-content: center;
 }
 
-/* justify-content-around row align-items-center */
+/* Estilos del scroll */
+
+/*? scroll */
+
+html::-webkit-scrollbar {
+  width: 0.5rem; /*? tamaño del scroll en vertical */
+  height: 1rem; /*? tamaño del scroll en horizontal */
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #bdb075;
+  border-radius: 4px;
+}
+
+
+html::-webkit-scrollbar-thumb:hover { /*? sombredo cuando se pase el cursor por encima */
+  background: #e2ce75;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+html::-webkit-scrollbar-thumb:active { /*? cambio de color cuando esta activo */
+  background-color: #333;
+}
+
+html::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 4px;
+}
