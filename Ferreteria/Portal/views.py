@@ -3,7 +3,7 @@ from .forms import Formulario_Contacto
 import mysql.connector
 
 def home(request):
-    return render(request, 'principal/home.html')
+    return render(request, 'Portal/home.html')
 
 def contacto(request):
 
@@ -21,7 +21,7 @@ def contacto(request):
 
     # NO HACE NADA POR AHORA, NO ESTA TERMINADO
 
-    return render(request, 'principal/contacto.html', context)
+    return render(request, 'Portal/contacto.html', context)
 
 def lineas(request):
     con=mysql.connector.connect(host="localhost", user="root",passwd="")
@@ -30,8 +30,8 @@ def lineas(request):
     cursor.execute(sql)
     lineas=cursor.fetchall()
     context={'lineas':lineas}
-    print(lineas)
+    # print(lineas)
      
     con.close()
     
-    return render(request, 'Principal/mostrarLineas.html', context  )
+    return render(request, 'Portal/mostrarLineas.html', context  )
