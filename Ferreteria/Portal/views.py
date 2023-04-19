@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .forms import Formulario_Contacto
+import mysql.connector
 
 def home(request):
-    return render(request, 'principal/home.html')
+    return render(request, 'Portal/home.html')
 
 def contacto(request):
 
@@ -20,7 +21,17 @@ def contacto(request):
 
     # NO HACE NADA POR AHORA, NO ESTA TERMINADO
 
-    return render(request, 'principal/contacto.html', context)
+    return render(request, 'Portal/contacto.html', context)
 
 def lineas(request):
-    pass
+    con=mysql.connector.connect(host="localhost", user="root",passwd="")
+    cursor=con.cursor()
+    sql="SELECT DISTINCT linea FROM gustavo.web;"
+    cursor.execute(sql)
+    lineas=cursor.fetchall()
+    context={'lineas':lineas}
+    # print(lineas)
+     
+    con.close()
+    
+    return render(request, 'Portal/mostrarLineas.html', context  )
