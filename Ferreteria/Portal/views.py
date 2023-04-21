@@ -1,23 +1,23 @@
 from django.shortcuts import render
-from .forms import Formulario_Contacto
+from .forms import FormularioContacto
 import mysql.connector
 
 def home(request):
     return render(request, 'Portal/home.html')
 
 def contacto(request):
-
-    form = Formulario_Contacto()
+    
     if request.method == 'POST':
-        nombreContacto = request.POST.get('nombreContacto')
-        emailContacto = request.POST.get('emailContacto')
-        telefonoContacto = request.POST.get('telefonoContacto')
-        mensajeContacto = request.POST.get('mensajeContacto')
-        datos= {'datos': (nombreContacto, emailContacto, telefonoContacto, mensajeContacto)}
-        return render(request, 'Portal/datos.html', datos)
-        #envia los valores del formulario a datos.html para probar si anda
-         
-    return render(request, 'Portal/contacto.html' )
+        formulario_contacto = FormularioContacto(request.POST)
+            #Acá iria la validación
+    else:
+        formulario_contacto = FormularioContacto()
+
+    context = {
+        'formulario_contacto': formulario_contacto,
+    }
+
+    return render(request, 'Portal/contacto.html', context)
 
 def lineas(request):
     con=mysql.connector.connect(host="localhost", user="root",passwd="")
