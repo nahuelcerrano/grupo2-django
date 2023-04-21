@@ -4,7 +4,10 @@
 
 <div class="contenedorContacto my-5" >
 
-    <form class="col-6 text-center">
+    <form class="col-6 text-center"  action="contacto" method='POST'>
+      {% csrf_token %} 
+
+      
 
         <div class="form-group col-12 my-2">
           <label for="nombreContacto" class="text-center text-body">Nombre:</label>
@@ -25,7 +28,7 @@
           <label for="mensajeContacto" class='text-body'>Mensaje:</label>
           <textarea class="form-control" id="mensajeContacto" name="mensajeContacto" rows="3" placeholder='Deje su comentario aquí' required></textarea>
           <button class="btn btn-primary m-4" type="submit">Enviar Consulta</button>
-        </div>
+        </div> 
       
       </form>
 </div>

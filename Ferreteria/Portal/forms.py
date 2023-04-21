@@ -1,7 +1,11 @@
 from django import forms
+ 
 
 class Formulario_Contacto(forms.Form):
-  nombreContacto = forms.CharField()
-  emailContacto = forms.EmailField()
-  telefonoContacto = forms.IntegerField()
-  mensajeContacto = forms.CharField()
+  nombreContacto = forms.CharField(required=True)
+  emailContacto = forms.EmailField(required=True)
+  telefonoContacto = forms.IntegerField(required=True)
+  mensajeContacto = forms.CharField(required=True)
+  
+  
+        

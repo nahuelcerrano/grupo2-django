@@ -8,20 +8,14 @@
 </div>
 {% comment %} <a  href="inicio" class="btn btn-danger"  id="volver">Volver</a>  {% endcomment %}
 <div class=" d-flex justify-content-around flex-wrap contenedorLineas" >
-{% for linea in lineas %}
-    
-         
-    
-
-<div class="card cardLineas" style="width: 18rem;">
-    {% load static %}
-    <img id="{{linea.0}}" class="card-img-top" src='{% static linea.0 %}.jpg' width="200px" height="200px"  alt="Card image cap">
-<form method="POST" action="/seleccion" enctype="multipart/form-data">
-    <div class="form-group text-center">
-     <input class="btn btn-info btn-xs btn-block"  type="submit" formenctype="multipart/form-data"  formmethod="post" id="{{linea.0}}" value="{{linea.0}}" name="Name">
+    {% for linea in lineas %}
+    <div class="card cardLineas" style="width: 18rem;">
+        {% load static %}
+        <img id="{{linea.0}}" class="card-img-top" src='{% static linea.0 %}.jpg' width="200px" height="200px"  alt="Card image cap">
+        <div class="text-center">
+            <a href="seleccion/{{linea.0}}" class="btn btn-info btn-xs btn-block" >{{linea.0}}</a>
+        </div>
     </div>
-</form>
-</div>
  
 {% endfor %}
  
