@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import Formulario_Contacto
+from .forms import FormularioContacto
 import mysql.connector
 
 def home(request):
@@ -7,21 +7,18 @@ def home(request):
 
 def contacto(request):
 
-    form = Formulario_Contacto()
     if request.method == 'POST':
-        nombreContacto = request.POST.get('nombreContacto')
-        emailContacto = request.POST.get('emailContacto')
-        telefonoContacto = request.POST.get('telefonoContacto')
-        mensajeContacto = request.POST.get('mensajeContacto')
-        (nombreContacto, emailContacto, telefonoContacto, mensajeContacto)
-    
+        formulario_contacto = FormularioContacto(request.POST)
+            #Acá iria la validación
+    else:
+        formulario_contacto = FormularioContacto()
+
     context = {
-        'formulario': form
+        'formulario_contacto': formulario_contacto,
     }
 
-    # NO HACE NADA POR AHORA, NO ESTA TERMINADO
-
     return render(request, 'Portal/contacto.html', context)
+
 
 def lineas(request):
     con=mysql.connector.connect(host="localhost", user="root",passwd="")
