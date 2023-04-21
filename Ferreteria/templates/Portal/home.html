@@ -4,8 +4,8 @@
 
 {% block cartelPrincipal %}
 
-{% load static%}
 <section 
+  {% load static%}
   class='img-fluid' 
   style='
     background-image: linear-gradient(to bottom,rgba(0, 0, 0, .10) 15%, rgba(0, 0, 0, 0.10) 25%), url({% static 'img/fondo.jpg' %});
@@ -17,9 +17,12 @@
     text-shadow: 1px 2px 3px black;
     color: white;
   '>
-  <h1 class='text-center'>Bienvenidos<h1/>
+  <h1 class='text-center py-5'>Bienvenidos</h1>
+  
+  <div class='d-flex justify-content-center'>
+    <a  href="lineas" class="btn btn-dark">Linea de Productos</a>
+  </div>
 
-    <a  href="lineas" class="btn btn-primary" style="margin-bottom:20vh;margin-left:50vh">Ingresar</a>
 </section>
 
 {% endblock cartelPrincipal %}
