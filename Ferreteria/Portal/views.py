@@ -32,3 +32,6 @@ def lineas(request):
     con.close()
     
     return render(request, 'Portal/mostrarLineas.html', context  )
+
+def about(request):
+    return render(request, 'Portal/about.html')
