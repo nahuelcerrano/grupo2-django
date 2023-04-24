@@ -32,6 +32,9 @@ def lineas(request):
     
     return render(request, 'Portal/mostrarLineas.html', context  )
 
+def about(request):
+    return render(request, 'Portal/about.html')
+
 def seleccion(request,linea):   
            
         sql=f"SELECT DISTINCT rubro FROM gustavo.web WHERE linea='{linea}';"
@@ -52,5 +55,5 @@ def gondola(request,rubro):
     articulos=cursor.fetchall()
     context={'articulos':articulos}
     con.close()
-    print(context['articulos'])
+    # print(context['articulos'])
     return render(request,'Portal/mostrarArticulos.html' ,context )
