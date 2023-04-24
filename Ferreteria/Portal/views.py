@@ -19,6 +19,7 @@ def contacto(request):
 
     return render(request, 'Portal/contacto.html', context)
 
+
 def lineas(request):
     con=mysql.connector.connect(host="localhost", user="root",passwd="")
     cursor=con.cursor()
