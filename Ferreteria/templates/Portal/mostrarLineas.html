@@ -2,24 +2,52 @@
 {% block titulo %}Maxi Ferreteria | Lineas {% endblock titulo %}
 {% block contacto %}
 
-    
-<div class="d-flex justify-content-center">
-     <h1>Seleccione una linea</h1>
-</div>
-{% comment %} <a  href="inicio" class="btn btn-danger"  id="volver">Volver</a>  {% endcomment %}
-<div class=" d-flex justify-content-around flex-wrap contenedorLineas" >
-    {% for linea in lineas %}
-    <div class="card cardLineas" style="width: 18rem;">
-        {% load static %}
-        <img id="{{linea.0}}" class="card-img-top" src='{% static linea.0 %}.jpg' width="200px" height="200px"  alt="Card image cap">
-        <div class="text-center">
-            <a href="seleccion/{{linea.0}}" class="btn btn-info btn-xs btn-block" >{{linea.0}}</a>
-        </div>
-    </div>
- 
-{% endfor %}
- 
-</div>
 
+<section class=''>
+
+    {% comment %} <div class='d-flex justify-content-center'>
+        <h1>Seleccione una linea</h1>
+    </div>
+    
+    <div class="container text-center" >
+
+        <div class='row justify-content-center gap-4 p-5'>
+
+            {% for linea in lineas %}
+            <div class="card col-1" style="width: 18rem;">
+    
+                {% load static %}
+                <img id="{{linea.0}}" class="card-img-top pt-1" src='{% static linea.0 %}.jpg' width="200px" height="200px"  alt="Card image cap">
+    
+                <div class="card-body text-center">
+                    <a href="seleccion/{{linea.0}}" class="btn btn-info btn-xs btn-block" >{{linea.0}}</a>
+                </div>
+    
+            </div>
+            
+            {% endfor %}
+        </div> {% endcomment %}
+
+
+        
+        {% comment %} <a  href="inicio" class="btn btn-danger"  id="volver">Volver</a>  {% endcomment %}
+        
+    </div>
+
+</section>
+
+<div class='cards_conteiner my-5'>
+  {% for linea in lineas %}
+  <div class="card_grid">
+    {% load static %}
+    <div class="card_image img">
+      <img id="{{linea.0}}"src='{% static linea.0 %}.jpg' alt="Card image cap">
+    </div>
+    <div class="card_btn">
+      <a href='seleccion/{{linea.0}}' class='btn_hover bn18 text-dark text-decoration-none d-flex align-items-center justify-content-center'>{{linea.0}}</a>
+    </div>
+  </div>
+  {%endfor%}
+</div>
 
 {% endblock contacto  %}
