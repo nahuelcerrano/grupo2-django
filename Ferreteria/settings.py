@@ -64,7 +64,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'gustavo',
         'USER': 'root',
-        'PASSWORD': env('DB_PASS'),
+        'PASSWORD': env('DB_PASS'), #En el archivo .env agregar la variable DB_PASS=su contraseña
         'HOST': 'localhost',
         'PORT': '3306',
         

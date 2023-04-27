@@ -21,7 +21,7 @@ def contacto(request):
 
 
 def lineas(request):
-    con=mysql.connector.connect(host="localhost", user="root",passwd="pass123")
+    con=mysql.connector.connect(host="localhost", user="root",passwd="")
     cursor=con.cursor()
     sql="SELECT DISTINCT linea FROM gustavo.web;"
     cursor.execute(sql)
@@ -39,7 +39,7 @@ def about(request):
 def seleccion(request,linea):   
            
         sql=f"SELECT DISTINCT rubro FROM gustavo.web WHERE linea='{linea}';"
-        con=mysql.connector.connect(host="localhost", user="root",passwd="pass123")
+        con=mysql.connector.connect(host="localhost", user="root",passwd="")
         cursor=con.cursor()
         cursor.execute(sql)
         rubros=cursor.fetchall()
@@ -50,7 +50,7 @@ def seleccion(request,linea):
     
 def gondola(request,rubro):
     sql=f"SELECT * FROM gustavo.web WHERE rubro = '{rubro}';"
-    con=mysql.connector.connect(host="localhost", user="root",passwd="pass123")
+    con=mysql.connector.connect(host="localhost", user="root",passwd="")
     cursor = con.cursor()
     cursor.execute(sql)
     articulos=cursor.fetchall()
