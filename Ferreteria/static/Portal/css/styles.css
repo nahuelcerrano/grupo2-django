@@ -75,7 +75,6 @@ html::-webkit-scrollbar-track {
   border-radius: .4rem;
   background-color: #fff;
   transition: 0.5s ease;
-  cursor: pointer;
   overflow: hidden;
   border-radius: 0;
   justify-content: start;
