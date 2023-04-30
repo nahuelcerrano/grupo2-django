@@ -2,6 +2,7 @@ import re
 from django import forms
 from django.forms import ValidationError
 
+#Validaciones para el formulario
 def solo_caracteres(value):
   if any (char.isdigit() for char in value):
     raise ValidationError ('El nombre no puede contener numeros. %(valor)s',
@@ -18,13 +19,15 @@ def max_number_validation(value):
   if len(number) != 10:
     raise ValidationError('El numero debe contener 10 digitos.')
 
+#La clase formulario
 class FormularioContacto(forms.Form):
   nombreContacto = forms.CharField(
     label='Nombre', 
     max_length=50,
     validators=[solo_caracteres],
+    required= True,
     widget=forms.TextInput(
-      attrs={'class': 'form-group col-12 my-2 text-center',
+      attrs={'class': 'form-control col-12 my-2 text-center',
              'placeholder': 'Ingrese su nombre'}
     )
   )
@@ -37,7 +40,7 @@ class FormularioContacto(forms.Form):
       'required': 'Por favor completa el campo'
     },
     widget=forms.EmailInput(
-      attrs={'class': 'form-group col-12 my-2 text-center',
+      attrs={'class': 'form-control col-12 my-2 text-center',
              'placeholder': 'Ingrese su mail'}
     )
   )
@@ -47,7 +50,7 @@ class FormularioContacto(forms.Form):
     max_length=15,
     validators=[max_number_validation],
     widget=forms.TextInput(
-      attrs={'class': 'form-group col-12 my-2 text-center',
+      attrs={'class': 'form-control col-12 my-2 text-center',
               'placeholder': 'Ingrese su telefono'}
     )
   )
@@ -56,7 +59,7 @@ class FormularioContacto(forms.Form):
     label='Mensaje', 
     max_length=50, 
     widget=forms.Textarea(
-      attrs={'class': 'form-group col-12 my-2',
+      attrs={'class': 'form-control col-12 my-2',
              'placeholder': 'Ingrese su mensaje aca...'}
     )
   )
