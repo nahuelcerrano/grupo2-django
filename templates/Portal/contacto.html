@@ -2,18 +2,33 @@
 {% block titulo %}Ferreteria Maxi | Contacto{% endblock titulo %}
 {% block contenido %}
 
-<div class="contenedorContacto form-container my-5" >
+<section
+{% load static%}
+  class='img-fluid pt-5' 
+  style='
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .10) 15%, rgba(0, 0, 0, 0.10) 25%), url({% static 'img/ferreteria-background.jpg' %});
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-shadow: 1px 2px 3px black;
+    color: white;
+  '>
+  <div class="contenedorContacto form-container" >
+  
+      <form class='col-6 text-center needs-validation' id='formulario_contacto' name='formulario_contacto' action='{% url 'inicio' %}' method='POST' novalidate>
+  
+        {% csrf_token %}
+        {{ formulario_contacto }}
+  
+        <button class="btn btn-primary m-4" type="submit">Enviar Consulta</button>
+      
+      </form>
+  
+  </div>
+</section>
 
-    <form class='col-6 text-center needs-validation' id='formulario_contacto' name='formulario_contacto' action='{% url 'inicio' %}' method='POST' novalidate>
-
-      {% csrf_token %}
-      {{ formulario_contacto }}
-
-      <button class="btn btn-primary m-4" type="submit">Enviar Consulta</button>
-    
-    </form>
-
-</div>
 
 {% endblock contenido %}
 
