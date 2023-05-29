@@ -1,0 +1,14 @@
+ {% extends 'Administrador/AdministradorBase.html' %}
+ {% if messages %}
+<ul class="messages">
+    <p>Mensaje</p>
+    {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+ {% block contenido %}
+<h1>ABM</h1>
+ 
+    
+{% endblock contenido %}

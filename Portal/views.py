@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import FormularioContacto
 from Portal.models import *
+from django.views.generic.list import ListView
 import mysql.connector
 
 def home(request):
@@ -69,3 +70,6 @@ def gondola(request,rubro):
     context={'articulos':articulos}
     print(articulos)
     return render(request,'Portal/mostrarArticulos.html' ,context )
+
+
+

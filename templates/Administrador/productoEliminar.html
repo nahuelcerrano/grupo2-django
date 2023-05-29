@@ -1,0 +1,16 @@
+{% extends 'Administrador/AdministradorBase.html' %}
+{% block contenido %}
+
+<h1 class="text-center" >Eliminar Producto</h1>
+<div class="contenedorContacto form-container my-5" >
+    
+    <form method="post">
+        {% csrf_token %}
+        <p>Esta seguro que quiere eliminar {{objet}}? </p>
+        {{ form.as_p }}
+        <input type="submit" value="confirmar">
+    </form>
+</div>
+
+
+{% endblock contenido %}
