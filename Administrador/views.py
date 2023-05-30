@@ -3,7 +3,7 @@ from Portal.models import *
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
-from .forms import SearchForm
+from .forms import SearchForm, SearchServicioForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -67,4 +67,28 @@ class ServicioCreateView(SuccessMessageMixin, CreateView):
     success_message='Servicio creado satisfactoriamente'
     success_url=reverse_lazy('abm') 
         
+
+class ServicioUpdateView(SuccessMessageMixin, UpdateView):
+    model=Servicio
+    fields='__all__'
+    success_url=reverse_lazy('abm')
+    success_message='Servicio editado Correctamente'
+    template_name='Administrador/servicioUpdateForm.html'
+    
+def servicioSearch(request):
+    
+    if request.method == 'POST':
+        busqueda=SearchServicioForm(request.POST)
+           
+        if busqueda.is_valid():
+            keyword=busqueda.cleaned_data['keyword']
         
+             
+            desc=Servicio.objects.all().filter(descripcion__icontains=keyword)
+                     
+            context ={'articulos':desc }
+            return render(request,'Administrador/serviciosResultadosSearch.html', context)
+    else:
+        busqueda=SearchServicioForm()    
+    
+    return render(request,'Administrador/servicioSearch.html', {'busqueda' : busqueda})

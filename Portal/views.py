@@ -34,7 +34,7 @@ def lineas(request):
     # con.close()
     lineas=Producto.objects.order_by().values_list('linea',flat=True).distinct()
     context={'lineas':lineas}
-    print(context)
+    # print(context)
     
     return render(request, 'Portal/mostrarLineas.html', context  )
 
@@ -68,7 +68,7 @@ def gondola(request,rubro):
     
     articulos=Producto.objects.all().filter(rubro=rubro)
     context={'articulos':articulos}
-    print(articulos)
+    # print(articulos)
     return render(request,'Portal/mostrarArticulos.html' ,context )
 
 

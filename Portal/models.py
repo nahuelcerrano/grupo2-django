@@ -26,6 +26,8 @@ class Linea_servicio(models.Model):
     
     linea=models.CharField(max_length=100 , verbose_name='Linea')
     
+    def __str__(self):
+        return f"{self.linea}"
     
     
 class Servicio(models.Model):
@@ -33,6 +35,9 @@ class Servicio(models.Model):
     descripcion=models.CharField(max_length=100 , verbose_name='Descripcion')       
     pcio_lista=models.FloatField(max_length=10 , verbose_name='Precio')
     linea=models.ForeignKey(Linea_servicio, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'{self.descripcion} - {self.pcio_lista} - {self.linea}'
     
     
 #muchos a muchos
@@ -52,3 +57,6 @@ class Metodo_de_pago(models.Model):
     
     tipo=models.CharField( max_length=50 , verbose_name='Metodo de Pago')
     cliente=models.ManyToManyField(Cliente)
+    
+    def __str__(self):
+        return f'{self.tipo} - {self.cliente} - {Cliente} '

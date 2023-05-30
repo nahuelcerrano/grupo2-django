@@ -12,3 +12,7 @@ class ProductoForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     keyword=forms.CharField(max_length=150, label='Palabra/Codigo a buscar',widget=forms.TextInput(attrs={'placeholder':'codigo, descipcion, linea, rubro',"size": "100"}))
+
+
+class SearchServicioForm(forms.Form):
+            keyword=forms.CharField(max_length=150, label='Palabra a buscar',widget=forms.TextInput(attrs={'placeholder':' descipcion ',"size": "100"}))
