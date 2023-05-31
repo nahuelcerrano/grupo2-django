@@ -1,0 +1,22 @@
+{% extends 'Administrador/AdministradorBase.html' %}
+{% block contenido %}
+
+<h1 class="AdministradorCreateTitle">Intoduzca el parametro a buscar</h1>
+ 
+
+<div class="contenedorContacto form-container my-5" >
+
+    <form class='col-6 text-center ' id='busqueda' name='busqueda' action='{% url 'search' %}' method='POST' novalidate>
+
+      {% csrf_token %}
+      {{ busqueda }}
+
+      <button class="btn btn-primary m-4" type="submit">Buscar</button>
+    
+    </form>
+
+</div>
+
+
+
+{% endblock contenido %}

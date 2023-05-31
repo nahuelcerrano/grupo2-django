@@ -14,10 +14,10 @@
     <div class="card_grid">
       {% load static %}
       <div class="card_image img">
-        <img id="{{linea.0}}"src='{% static linea.0 %}.jpg' alt="Card image cap">
+        <img id="{{linea}}"src='{% static linea %}.jpg' alt="Card image cap">
       </div>
       <div class="card_btn">
-        <a href='seleccion/{{linea.0}}' class='btn_hover bn18 text-dark text-decoration-none d-flex align-items-center justify-content-center'>{{linea.0}}</a>
+        <a href='seleccion/{{linea}}' class='btn_hover bn18 text-dark text-decoration-none d-flex align-items-center justify-content-center'>{{linea}}</a>
       </div>
     </div>
     {%endfor%}

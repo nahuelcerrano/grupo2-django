@@ -1,6 +1,7 @@
 import re
 from django import forms
 from django.forms import ValidationError
+ 
 
 #Validaciones para el formulario
 def solo_caracteres(value):
@@ -63,3 +64,4 @@ class FormularioContacto(forms.Form):
              'placeholder': 'Ingrese su mensaje aca...'}
     )
   )
+

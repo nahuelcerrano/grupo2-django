@@ -1,0 +1,16 @@
+ {% extends 'Administrador/AdministradorBase.html' %}
+
+ {% block contenido %}
+ {% if messages %}
+<ul class="messages">
+     {% for message in messages %}
+    <li> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+ <h1 class="AdministradorCreateTitle">Bienvenido al Panel de Altas, Bajas y Modificaciones</h1>
+ 
+    
+{% endblock contenido %}

@@ -1,0 +1,50 @@
+
+<header>
+    <nav class="navbar navbar-expand-lg" style='background-color: #f8e89f;'>
+      <div class="container-fluid">
+  
+        <a class="navbar-brand mr-4 logo fs-3" href="/">Ferreteria Maxi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <p class="bi-cursor logoPanel">Panel de Administracion</p>
+        {% comment %} <form class="d-flex" role='search'>
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar">
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
+        </form> {% endcomment %}
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-2">
+            {% comment %} <a class="navbar-brand mx-3" href="#">
+              <i class="bi bi-cart-fill" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnModalBoot"></i>
+            </a> {% endcomment %}
+            <li class="nav-item mx-2 ">
+              <a class="nav-link active  border border-primary border-2 rounded  " href="/productoCreateView"> Alta Productos </a>
+            </li>
+            <li class="nav-item mx-2  ">
+              <a class="nav-link active border border-primary border-2 rounded" href="/search">Editar/Borrar Producto <span class="sr-only"></span></a>
+            </li> 
+            <li class="nav-item mx-2 " >
+              <a class="nav-link active border border-success border-2 rounded" href="servicioCreateView"> Alta Servicios </a>
+            </li>
+            <li class="nav-item mx-2 ">
+              <a class="nav-link active border border-success border-2  rounded" href="/servicioSearch">Editar/Borrar Servicio <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-itemmx-2 ">
+              <a class="nav-link active border border-secondary border-2  rounded" href="clienteCreateView"> Alta Clientes </a>
+              </li>
+            <li class="nav-item mx-2  ">
+              <a class="nav-link active border border-secondary border-2  rounded" href="clienteSearch">Editar/Borrar Cliente <span class="sr-only"></span></a>
+            </li>   
+  
+   
+          </ul>       
+        </div>
+        
+      </div>
+    </nav>
+  
+  </header>
+  {% block contenido %}
+  {% endblock contenido%}
