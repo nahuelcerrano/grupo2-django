@@ -3,7 +3,7 @@ from Portal.models import *
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
-from .forms import SearchForm, SearchServicioForm
+from .forms import SearchForm, SearchServicioForm, SearchClienteForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -12,7 +12,7 @@ def abm(request):
     return render(request,'Administrador/abm.html')
 
 class ProductoListView(ListView):
-    model = Producto
+    model = Producto                #no esta en funcionamiento
     paginate_by=50
     template_name='Administrador/productoListView.html'
     
@@ -92,3 +92,50 @@ def servicioSearch(request):
         busqueda=SearchServicioForm()    
     
     return render(request,'Administrador/servicioSearch.html', {'busqueda' : busqueda})
+
+class ServicioEliminarView(SuccessMessageMixin, DeleteView):
+    model=Servicio
+    template_name='Administrador/servicioEliminar.html'
+    success_message='Servicio Eliminado satisfactoriamente'
+    success_url=reverse_lazy('abm')  
+    
+    
+class ClienteCreateView(SuccessMessageMixin, CreateView):
+    model=Cliente
+    template_name='Administrador/clienteCreateView.html'
+    fields='__all__'
+    success_message='Cliente creado correctamente'
+    success_url=reverse_lazy('abm')
+    
+def clienteSearch(request):
+    if request.method == 'POST':
+        busqueda=SearchClienteForm(request.POST)
+           
+        if busqueda.is_valid():
+            keyword=busqueda.cleaned_data['keyword']
+        
+             
+            nom=Cliente.objects.all().filter(nombre__icontains=keyword)
+            apell=Cliente.objects.all().filter(apellido__icontains=keyword)
+            resultados=nom.union(apell)
+            context ={'articulos':resultados }
+            return render(request,'Administrador/clienteResultadosSearch.html', context)
+    else:
+        busqueda=SearchServicioForm()    
+    
+    return render(request,'Administrador/clienteSearch.html', {'busqueda' : busqueda})
+    
+    
+class ClienteUpdateView(SuccessMessageMixin, UpdateView):
+    model=Cliente
+    fields='__all__'
+    success_url='abm'
+    success_message='Cliente editado correctamente'
+    template_name='Administrador/clienteUpdateForm.html'
+    
+class ClienteEliminarView(SuccessMessageMixin, DeleteView):
+    model=Cliente
+    template_name='Administrador/clienteEliminar.html'
+    success_message='Cliente Eliminado satisfactoriamente'
+    success_url=reverse_lazy('abm') 
+    

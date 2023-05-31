@@ -16,3 +16,6 @@ class SearchForm(forms.Form):
 
 class SearchServicioForm(forms.Form):
             keyword=forms.CharField(max_length=150, label='Palabra a buscar',widget=forms.TextInput(attrs={'placeholder':' descipcion ',"size": "100"}))
+
+class SearchClienteForm(forms.Form):
+            keyword=forms.CharField(max_length=150, label='Nombre o Apellido a buscar', widget=forms.TextInput(attrs={'placeholder':'nombre o apellido',"size": "100"}) )

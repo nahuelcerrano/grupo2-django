@@ -1,0 +1,15 @@
+{% extends 'Administrador/AdministradorBase.html' %}
+{% block contenido %}
+
+<h1 class="text-center" >Editar Cliente</h1>
+<div class="contenedorContacto form-container my-5" >
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+
+{% endblock contenido %}

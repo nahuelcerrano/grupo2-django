@@ -59,4 +59,4 @@ class Metodo_de_pago(models.Model):
     cliente=models.ManyToManyField(Cliente)
     
     def __str__(self):
-        return f'{self.tipo} - {self.cliente} - {Cliente} '
+        return f'{self.tipo} '

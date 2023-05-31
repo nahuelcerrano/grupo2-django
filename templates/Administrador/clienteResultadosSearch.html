@@ -10,15 +10,15 @@
   {% comment %} <div class="col-1 art mw-100 no-gutters text-center">
     <p  class="item-codigo">{{articulo.cod_producto}}</p>
   </div> {% endcomment %}
-  <div class="col-5 art no-gutters text-center"  >
-    <p class="item-descripcionProducto ">{{articulo.descripcion}}</p>
+  <div class="col-3 art no-gutters text-center"  >
+    <p class="item-descripcionProducto ">{{articulo.nombre}}</p>
   </div>
-  <div class="col-1 art mw-100 no-gutters text-center">
-    <p class="item-precioProducto">{{articulo.pcio_lista}}</p>
+  <div class="col-3 art mw-100 no-gutters text-center">
+    <p class="item-precioProducto">{{articulo.apellido}}</p>
   </div>
-  {% comment %} <div class="col-1 art mw-100 no-gutters text-center">
-    <p class="item-unidadDeVenta">{{articulo.unidad}}</p>
-  </div> {% endcomment %}
+    <div class="col-3 art mw-100 no-gutters text-center">
+    <p class="item-unidadDeVenta">{{articulo.email}}</p>
+  </div>  
   {% comment %} <div class="col-1 art mw-100 no-gutters text-center">
     <p class="item-rubro">{{articulo.rubro}}</p>
   </div> {% endcomment %}
@@ -26,10 +26,10 @@
     <p class="item-linea">{{articulo.linea}}</p>
   </div> {% endcomment %}
   <div class="col-1 art mw-100 no-gutters text-center" >
-  <a href="{% url 'servicioEditar' articulo.id %}" title="Editar" class="btn btn-warning">Editar</a>
+  <a href="{% url 'clienteEditar' articulo.id %}" title="Editar" class="btn btn-warning">Editar</a>
   </div>
   <div class="col-1 art mw-100 no-gutters text-center">
-  <a href="{% url 'servicioEliminar' articulo.id %}" title="Eliminar" class="btn btn-danger">Eliminar</a>
+  <a href="{% url 'clienteEliminar' articulo.id %}" title="Eliminar" class="btn btn-danger">Eliminar</a>
   </div>
   {% comment %} <div class="col-2 art mw-100 no-gutters text-center">
    <input type="number" value="0" class='cantidadDefault' id={{articulo.id}} > <button class="btn btn-success btnAñadirAlCarrito" title="Añadir Producto">OK</button> 
