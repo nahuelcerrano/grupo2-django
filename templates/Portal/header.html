@@ -7,8 +7,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <form class="d-flex" role='search'>
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar">
+      <form class="d-flex" role='search' action={% url 'portalSearch' %} method='get'>
+        
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar" name="keyword">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
       </form>
 

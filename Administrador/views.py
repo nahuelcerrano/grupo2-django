@@ -139,3 +139,6 @@ class ClienteEliminarView(SuccessMessageMixin, DeleteView):
     success_message='Cliente Eliminado satisfactoriamente'
     success_url=reverse_lazy('abm') 
     
+
+  
+    

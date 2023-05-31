@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .forms import FormularioContacto
 from Portal.models import *
 from django.views.generic.list import ListView
-import mysql.connector
+from Administrador.forms  import SearchForm
+#import mysql.connector
 
 def home(request):
     return render(request, 'Portal/home.html')
@@ -71,5 +72,18 @@ def gondola(request,rubro):
     # print(articulos)
     return render(request,'Portal/mostrarArticulos.html' ,context )
 
-
-
+def portalSearch(request):
+    
+   
+    if request.method =='GET':
+        
+        keyword=request.GET.get('keyword')
+        cod=Producto.objects.all().filter(cod_producto__contains=keyword)
+        linea=Producto.objects.all().filter(linea__icontains=keyword)
+        rubro=Producto.objects.all().filter(rubro__icontains=keyword)
+        desc=Producto.objects.all().filter(descripcion__icontains=keyword)
+        articulos=cod.union(linea,rubro,desc)
+        context ={'articulos':articulos }
+        print(articulos)
+        return render(request,'Portal\mostrarArticulos.html', context)
+    pass
