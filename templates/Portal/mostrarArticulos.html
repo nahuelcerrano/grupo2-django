@@ -54,7 +54,8 @@
          <input type="number" value="0" class='cantidadDefault' id={{articulo.id}} > <button class="btn btn-success btnAñadirAlCarrito" title="Añadir Producto">OK</button> 
         </div>
     </div> 
-  
+    {% empty %}
+  <li>No se encontraron coincidencias.</li>
   
     {% endfor %}
   </div> 
@@ -74,7 +75,7 @@
       </div>
     </div>
   </div>
- 
+
  
 
 
