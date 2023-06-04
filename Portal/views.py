@@ -1,11 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.conf import settings
 from .forms import FormularioContacto
 from Portal.models import *
 from django.views.generic.list import ListView
-from Administrador.forms  import SearchForm
-#import mysql.connector
+from Portal.forms import LoginForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def home(request):
+    # if request.user != 'AnonymousUser':
+    #     print("anonimo")
+    #     return redirect(to='loginView')
+                   
     return render(request, 'Portal/home.html')
 
 def contacto(request):
@@ -23,16 +31,9 @@ def contacto(request):
 
     return render(request, 'Portal/contacto.html', context)
 
-
+@login_required
 def lineas(request):
-    # con=mysql.connector.connect(host="localhost", user="root",passwd="")
-    # cursor=con.cursor()
-    # sql="SELECT DISTINCT linea FROM gustavo.web;"
-    # cursor.execute(sql)
-    # lineas=cursor.fetchall()
-    # context={'lineas':lineas}
-    # # print(lineas)
-    # con.close()
+ 
     lineas=Producto.objects.order_by().values_list('linea',flat=True).distinct()
     context={'lineas':lineas}
     # print(context)
@@ -42,38 +43,25 @@ def lineas(request):
 def about(request):
     return render(request, 'Portal/about.html')
 
+@login_required
 def seleccion(request,linea):   
            
-        # sql=f"SELECT DISTINCT rubro FROM gustavo.web WHERE linea='{linea}';"
-        # con=mysql.connector.connect(host="localhost", user="root",passwd="")
-        # cursor=con.cursor()
-        # cursor.execute(sql)
-        # rubros=cursor.fetchall()
-        # context={'rubros':rubros}
-        # con.close()
-        
         rubro=Producto.objects.order_by().values_list('rubro', flat=True).distinct().filter(linea=linea)
         context={'rubros':rubro}
         return render(request,'Portal/mostrarRubros.html', context)
     
-    
+@login_required    
 def gondola(request,rubro):
-    # sql=f"SELECT * FROM gustavo.web WHERE rubro = '{rubro}';"
-    # con=mysql.connector.connect(host="localhost", user="root",passwd="")
-    # cursor = con.cursor()
-    # cursor.execute(sql)
-    # articulos=cursor.fetchall()
-    # context={'articulos':articulos}
-    # con.close()
-    # print(context['articulos'])
-    
+       
     articulos=Producto.objects.all().filter(rubro=rubro)
     context={'articulos':articulos}
     # print(articulos)
     return render(request,'Portal/mostrarArticulos.html' ,context )
 
+@login_required
 def portalSearch(request):
     
+   
    
     if request.method =='GET':
         
@@ -87,3 +75,43 @@ def portalSearch(request):
         print(articulos)
         return render(request,'Portal\mostrarArticulos.html', context)
     pass
+
+
+def loginView(request):
+    
+    if request.method == 'POST':
+            
+        username=request.POST['username']
+        password=request.POST['password']
+        print(username)
+        user=authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request,user)
+            print('autorizado')
+            return render(request, 'Portal/home.html' )
+        else:
+            formulario_login = LoginForm()
+
+            context = {
+                'formulario_login': formulario_login,
+                'messages':"Nombre o Password incorrectos"
+            }
+            return render(request, 'Portal/Login.html',context)
+    else:
+        
+        formulario_login = LoginForm()
+
+    context = {
+        'formulario_login': formulario_login,
+    }
+
+    return render(request, 'Portal/login.html', context)
+    
+    
+def logoutView(request):
+    logout(request)  
+    return redirect('loginView')
+    
+
+        

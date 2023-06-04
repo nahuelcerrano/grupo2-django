@@ -65,3 +65,14 @@ class FormularioContacto(forms.Form):
     )
   )
 
+class LoginForm(forms.Form):
+      
+  username=forms.CharField(
+    max_length=50,
+    label='Nombre')
+  
+    
+  password=forms.CharField(
+    max_length=50,
+    label='Password',
+    widget=forms.PasswordInput())
