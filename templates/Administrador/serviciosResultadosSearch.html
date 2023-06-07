@@ -1,6 +1,16 @@
 {% extends 'Administrador/AdministradorBase.html' %}
 {% block contenido %}
 
+<div class="row articulos justify-content-center listado item"  >
+  <div class="col-5 art no-gutters text-center"  >
+    <h3 class="item-descripcionProducto ">Descripcion</h3>
+  </div>
+  <div class="col-1 art mw-100 no-gutters text-center">
+    <h3 class="item-precioProducto">Precio</h3>
+  </div>
+  <div class='col-1 art mw-100 no-gutters text-center"'></div>
+  <div class='col-1 art mw-100 no-gutters text-center"'></div>
+
 {% for articulo in articulos %}
    
 <div class="row articulos justify-content-center listado item"  >
@@ -14,7 +24,7 @@
     <p class="item-descripcionProducto ">{{articulo.descripcion}}</p>
   </div>
   <div class="col-1 art mw-100 no-gutters text-center">
-    <p class="item-precioProducto">{{articulo.pcio_lista}}</p>
+    <p class="item-precioProducto">${{articulo.pcio_lista}}</p>
   </div>
   {% comment %} <div class="col-1 art mw-100 no-gutters text-center">
     <p class="item-unidadDeVenta">{{articulo.unidad}}</p>

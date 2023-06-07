@@ -3,7 +3,7 @@ const form = document.getElementById('formulario_contacto')
 const nombre = document.getElementById('id_nombreContacto')
 const email = document.getElementById('id_emailContacto')
 const telefono = document.getElementById('id_telefonoContacto')
-const comentario = document.getElementById('id_comentarioContacto')
+const comentario = document.getElementById('id_mensajeContacto')
 
 // El event listener para que no se envie el form y agrega ka clase was validated
 
