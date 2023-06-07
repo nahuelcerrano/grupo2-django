@@ -17,7 +17,7 @@ class Producto(models.Model):
     rubro=models.CharField(max_length=50, verbose_name='Rubro')
     
     def __str__(self):
-        return f'{self.rubro} - {self.linea} - {self.descripcion} - {self.pcio_lista} - {self.unidad} - {self.imagen}'
+        return f' {self.cod_producto} - {self.rubro} - {self.linea} - {self.descripcion} - {self.pcio_lista} - {self.unidad} - {self.imagen}'
     
     
    

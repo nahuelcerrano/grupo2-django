@@ -2,7 +2,9 @@
 {% block titulo %}Maxi Ferreteria | Articulos {% endblock titulo %}
 {% block contenido %}
 
-    
+
+
+<a class="btn btn-secondary  " href="/inicio" >Ir a inicio</a>  <a class="btn  btn-secondary "  href="/lineas">Volver a Lineas</a>
 <div class="d-flex justify-content-center">
      <h1>Añadir al carro </h1>
 </div>
@@ -45,7 +47,7 @@
           <p class="item-descripcionProducto ">{{articulo.descripcion}}</p>
         </div>
         <div class="col-1 art mw-100 no-gutters text-center">
-          <p class="item-precioProducto">{{articulo.pcio_lista}}</p>
+          <p class="item-precioProducto">${{articulo.pcio_lista}}</p>
         </div>
         <div class="col-1 art mw-100 no-gutters text-center">
           <p class="item-unidadDeVenta">{{articulo.unidad}}</p>
@@ -54,7 +56,8 @@
          <input type="number" value="0" class='cantidadDefault' id={{articulo.id}} > <button class="btn btn-success btnAñadirAlCarrito" title="Añadir Producto">OK</button> 
         </div>
     </div> 
-  
+    {% empty %}
+  <li>No se encontraron coincidencias.</li>
   
     {% endfor %}
   </div> 
@@ -74,8 +77,8 @@
       </div>
     </div>
   </div>
- 
- 
 
+ 
+ 
 
 {% endblock contenido  %}
