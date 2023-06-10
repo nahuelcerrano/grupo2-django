@@ -1,8 +1,8 @@
 {% extends 'Portal/base.html' %}
 {% block titulo %}Maxi Ferreteria | Articulos {% endblock titulo %}
 {% block contenido %}
-
-
+ 
+<div style="background-image:url('/static/gunge-soft-wallpaper-texture.jpg');"  >
 
 <a class="btn btn-secondary  " href="/inicio" >Ir a inicio</a>  <a class="btn  btn-secondary "  href="/lineas">Volver a Lineas</a>
 <div class="d-flex justify-content-center">
@@ -57,7 +57,7 @@
         </div>
     </div> 
     {% empty %}
-  <li>No se encontraron coincidencias.</li>
+   <h2 class="text-md-center">No se encontraron coincidencias.</h2> 
   
     {% endfor %}
   </div> 
@@ -78,7 +78,7 @@
     </div>
   </div>
 
- 
+</div>
  
 
 {% endblock contenido  %}

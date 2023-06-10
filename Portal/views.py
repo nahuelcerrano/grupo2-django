@@ -79,6 +79,10 @@ def portalSearch(request):
 
 def loginView(request):
     
+    if request.user.is_authenticated:
+        # print('logueado')
+        return render(request, 'Portal/home.html' )
+    
     if request.method == 'POST':
             
         username=request.POST['username']

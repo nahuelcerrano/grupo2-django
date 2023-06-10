@@ -126,8 +126,16 @@ html::-webkit-scrollbar-track {
 }
 
 .hero_text h1{
-  text-shadow: 1px 1px 2px #000, 0 0 1em #e2ce75, 0 0 0.2em #e2ce75;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
 }
 .hero_text h2{
-  text-shadow: 1px 1px 2px #000, 0 0 1em #e2ce75, 0 0 0.2em #e2ce75;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
 }
+
+.loginContainer{
+  background-color: rgba(107, 109, 110, 0.7);
+  border-radius:5%;
+  width: 40%;
+   
+}
+ 
