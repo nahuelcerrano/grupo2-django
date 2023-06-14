@@ -1,59 +1,4 @@
-// // Creo las variables para cada input del form
-// const form = document.getElementById('formulario_contacto')
-// const nombre = document.getElementById('id_nombreContacto')
-// const email = document.getElementById('id_emailContacto')
-// const telefono = document.getElementById('id_telefonoContacto')
-// const comentario = document.getElementById('id_comentarioContacto')
-
-// // El event listener para que no se envie el form y agrega ka clase was validated
-
-// form.addEventListener('submit', (event) => {
-
-//     event.preventDefault();
-  
-//     if (!form.checkValidity()) {
-//       event.stopPropagation();
-//     }
-  
-//     form.classList.add('was-validated');
-
-// });
-
-
-// // En cada input valida si es true (quita los la clase is valid) o false (agrega los la clase is valid)
-// // Mucho no sirve por que solo esta validando si en el input hay caracteres escritos o no
-// // Por lo que hay que rehacerlo
-// nombre.addEventListener('input', () => {
-//     if (nombre.validity.valid) {
-//       nombre.classList.remove('is-invalid');
-//     } else {
-//       nombre.classList.add('is-invalid');
-//     }
-// });
-
-// email.addEventListener('input', () => {
-//     if (nombre.validity.valid) {
-//       nombre.classList.remove('is-invalid');
-//     } else {
-//       nombre.classList.add('is-invalid');
-//     }
-// });
-
-// telefono.addEventListener('input', () => {
-//     if (nombre.validity.valid) {
-//       nombre.classList.remove('is-invalid');
-//     } else {
-//       nombre.classList.add('is-invalid');
-//     }
-// });
-
-// comentario.addEventListener('input', () => {
-//     if (nombre.validity.valid) {
-//       nombre.classList.remove('is-invalid');
-//     } else {
-//       nombre.classList.add('is-invalid');
-//     }
-// });
+ 
 
 // FUNCIONES DEL CARRITO
 
@@ -467,15 +412,7 @@ function btnVolverClicked(){
 // });
 
 
-function modal(event){
-    let id=event.currentTarget.getAttribute("id")
-    let descripcion=event.currentTarget.getAttribute("name")
-    let modal=document.getElementById("imagenModal2")
-    modal.setAttribute("src", "userpic/"+id+".jpg")
-    titulo=document.getElementById('exampleModalLongTitle')
-    titulo.innerHTML=descripcion
-    
-  }
+ 
 
 
 function acomodadorDePedido(item){
@@ -487,7 +424,30 @@ function acomodadorDePedido(item){
     divPedido.innerHTML=itemPedido
     pedidoTotal.append(divPedido)
 };
+function modal(event){
+    console.log("first")
+    let id=event.currentTarget.getAttribute("id")
+    
+    let descripcion=event.currentTarget.getAttribute("name")
+     
+    let modal=document.getElementById("imagenModal2")
+     
+    modal.setAttribute("src", "/static/img/"+id+".jpg")
+    
+    let titulo=document.getElementById('exampleModalLongTitle')
+    
+    titulo.innerHTML=descripcion
+    let modalTodo=document.getElementById("modal2")
 
+    
+    $('#modal2').modal('toggle')
+    
+  };
+
+  function closeModal(){
+     
+    $('#modal2').modal('toggle')
+  }
 
 
 

@@ -138,4 +138,30 @@ html::-webkit-scrollbar-track {
   width: 40%;
    
 }
+.item-image{
+  position: absolute;
+   /* top: 0;
+   left: 0; */
+  z-index: 1;
+  
+  overflow:hidden ;
+  /* max-height: 120px; */
+  width: 100px;
+
+ 
+}
+.lupa{
+  position: absolute;
+  /* top: 0;
+  right: 0; */
+  z-index: 99;
+  width:100px;
+}
+ 
+ 
+
+  .contenedorDeImagenes{
+    height: 100px;
+    max-width: 100px;
+  }
  
