@@ -25,7 +25,7 @@
 <div class="text-md-center "> <h1 class="tituloBienvenidos">Bienvenidos a Ferreteria Maxi</h1> </div>
   <div class="contenedorContacto form-container" >
   
-      <form class='col-6 text-center' id='formulario_login' name='formulario_login' action='{% url 'loginView' %}' method='POST'>
+      <form class='col-5 text-center' id='formulario_login' name='formulario_login' action='{% url 'loginView' %}' method='POST'>
       
         {% csrf_token %}
        <p class='row lead'> {{ formulario_login.username.label }} </p>
@@ -43,7 +43,7 @@
   
   </div>
 </div>
-   
+ 
 </section>
 
 

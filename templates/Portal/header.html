@@ -30,7 +30,7 @@
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar" name="keyword">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
       </form>
-{% endif %}
+      {% endif %}
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 3vh;">
  
@@ -43,8 +43,8 @@
 
           {% if user.is_staff %}
           <li class="nav-item">
-            <a type="submit" class="nav-link active" href='/abm'>Panel de Administrador</a>
-          </li>
+             <a class='nav-link active' href='/abm'>Panel de Administrador</a>
+           </li>
           {% endif %}
 
           {% if user.is_authenticated %}
