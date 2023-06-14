@@ -95,9 +95,9 @@ def loginView(request):
 
             context = {
                 'formulario_login': formulario_login,
-                'messages':"Nombre o Password incorrectos"
+                'messages':"Nombre o contraseña incorrectos"
             }
-            return render(request, 'Portal/Login.html',context)
+            return render(request, 'Portal/login.html',context)
     else:
         
         formulario_login = LoginForm()
