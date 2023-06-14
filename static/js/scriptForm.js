@@ -9,9 +9,9 @@ const comentario = document.getElementById('id_mensajeContacto')
 
 form.addEventListener('submit', (event) => {
 
-    event.preventDefault();
   
-    if (!form.checkValidity()) {
+  if (!form.checkValidity()) {
+      event.preventDefault(); 
       event.stopPropagation();
     }
   
@@ -32,25 +32,25 @@ nombre.addEventListener('input', () => {
 });
 
 email.addEventListener('input', () => {
-    if (nombre.validity.valid) {
-      nombre.classList.remove('is-invalid');
+    if (email.validity.valid) {
+      email.classList.remove('is-invalid');
     } else {
-      nombre.classList.add('is-invalid');
+      email.classList.add('is-invalid');
     }
 });
 
 telefono.addEventListener('input', () => {
-    if (nombre.validity.valid) {
-      nombre.classList.remove('is-invalid');
+    if (telefono.validity.valid) {
+      telefono.classList.remove('is-invalid');
     } else {
-      nombre.classList.add('is-invalid');
+      telefono.classList.add('is-invalid');
     }
 });
 
 comentario.addEventListener('input', () => {
-    if (nombre.validity.valid) {
-      nombre.classList.remove('is-invalid');
+    if (comentario.validity.valid) {
+      comentario.classList.remove('is-invalid');
     } else {
-      nombre.classList.add('is-invalid');
+      comentario.classList.add('is-invalid');
     }
 });

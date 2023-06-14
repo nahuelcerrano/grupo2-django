@@ -4,14 +4,13 @@ from django.forms import ValidationError
  
 
 #Validaciones para el formulario
-def solo_caracteres(value):
-  if any (char.isdigit() for char in value):
-    raise ValidationError ('El nombre no puede contener numeros. %(valor)s',
-                           code='Invalid',
-                           params={'valor': value})
-  
+def validate_name(value):
+  nombre_regex = r'^[a-zA-ZÀ-ÿ\s]{4,40}$'
+  if not re.match(nombre_regex, value):
+    raise ValidationError('El nombre ingresado es invalido')
+
 def validate_email(value):
-  email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+  email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
   if not re.match(email_regex, value):
     raise ValidationError('El email ingresado es invalido.')
   
@@ -22,11 +21,15 @@ def max_number_validation(value):
 
 #La clase formulario
 class FormularioContacto(forms.Form):
+
   nombreContacto = forms.CharField(
     label='Nombre', 
-    max_length=50,
-    validators=[solo_caracteres],
+    max_length=40,
+    validators=[validate_name],
     required= True,
+    error_messages={
+      'required': 'Por favor completa el campo'
+    },
     widget=forms.TextInput(
       attrs={'class': 'form-control col-12 my-2 text-center',
              'placeholder': 'Ingrese su nombre'}
@@ -37,6 +40,7 @@ class FormularioContacto(forms.Form):
     label='Email', 
     max_length=50,
     validators=[validate_email],
+    required= True,
     error_messages={
       'required': 'Por favor completa el campo'
     },
@@ -50,6 +54,7 @@ class FormularioContacto(forms.Form):
     label='Telefono', 
     max_length=15,
     validators=[max_number_validation],
+    required= True,
     widget=forms.TextInput(
       attrs={'class': 'form-control col-12 my-2 text-center',
               'placeholder': 'Ingrese su telefono'}
@@ -58,7 +63,8 @@ class FormularioContacto(forms.Form):
 
   mensajeContacto = forms.CharField(
     label='Mensaje', 
-    max_length=50, 
+    max_length=50,
+    required= True,
     widget=forms.Textarea(
       attrs={'class': 'form-control col-12 my-2',
              'placeholder': 'Ingrese su mensaje aca...'}
@@ -68,13 +74,21 @@ class FormularioContacto(forms.Form):
 class LoginForm(forms.Form):
       
   username=forms.CharField(
-    max_length=40,
+    max_length=50,
     label='Nombre',
-    widget=forms.TextInput(attrs={'class': 'row w-75' }))
-    
-  
-    
+    required= True,
+    widget=forms.TextInput(
+      attrs={'class': 'form-control my-2 text-center',
+             'placeholder': 'Ingrese su nombre'}
+    )
+  )
+
   password=forms.CharField(
-    max_length=40,
+    max_length=50,
     label='Password',
-    widget=forms.PasswordInput(attrs={'class': 'row w-75'}))
+    required= True,
+    widget=forms.PasswordInput(
+      attrs={'class': 'form-control my-2 text-center',
+             'placeholder': 'Ingrese su contraseña'}
+    )
+  )

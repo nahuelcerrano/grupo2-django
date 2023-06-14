@@ -87,21 +87,21 @@ def loginView(request):
             
         username=request.POST['username']
         password=request.POST['password']
-        print(username)
+        # print(username)
         user=authenticate(request, username=username, password=password)
         
         if user is not None:
             login(request,user)
-            print('autorizado')
+            # print('autorizado')
             return render(request, 'Portal/home.html' )
         else:
             formulario_login = LoginForm()
 
             context = {
                 'formulario_login': formulario_login,
-                'messages':"Nombre o Password incorrectos"
+                'messages':"Nombre o contraseña incorrectos"
             }
-            return render(request, 'Portal/Login.html',context)
+            return render(request, 'Portal/login.html',context)
     else:
         
         formulario_login = LoginForm()
