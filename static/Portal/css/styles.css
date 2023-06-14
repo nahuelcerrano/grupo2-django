@@ -126,8 +126,42 @@ html::-webkit-scrollbar-track {
 }
 
 .hero_text h1{
-  text-shadow: 1px 1px 2px #000, 0 0 1em #e2ce75, 0 0 0.2em #e2ce75;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
 }
 .hero_text h2{
-  text-shadow: 1px 1px 2px #000, 0 0 1em #e2ce75, 0 0 0.2em #e2ce75;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
 }
+
+.loginContainer{
+  background-color: rgba(107, 109, 110, 0.7);
+  border-radius:5%;
+  width: 40%;
+   
+}
+.item-image{
+  position: absolute;
+   /* top: 0;
+   left: 0; */
+  z-index: 1;
+  
+  overflow:hidden ;
+  /* max-height: 120px; */
+  width: 100px;
+
+ 
+}
+.lupa{
+  position: absolute;
+  /* top: 0;
+  right: 0; */
+  z-index: 99;
+  width:100px;
+}
+ 
+ 
+
+  .contenedorDeImagenes{
+    height: 100px;
+    max-width: 100px;
+  }
+ 

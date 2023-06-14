@@ -16,29 +16,34 @@
     text-shadow: 1px 2px 3px black;
     color: white;
   '>
-
-  
-<div class="text-md-center hero_text"> 
-    
-  {% if messages %}
-  <h2 class='text-center my-2'> {{ messages }} </h2>
-  {% endif %}
-  <h1>Bienvenidos a Ferreteria Maxi</h1>
-  
+{% if messages %}
+<div class="text-md-center">
+  <h2>{{messages}} </h2>
+</div>
+{% endif %}
+<div class='loginContainer mx-auto '>
+<div class="text-md-center "> <h1 class="tituloBienvenidos">Bienvenidos a Ferreteria Maxi</h1> </div>
   <div class="contenedorContacto form-container" >
   
       <form class='col-5 text-center' id='formulario_login' name='formulario_login' action='{% url 'loginView' %}' method='POST'>
       
         {% csrf_token %}
-        {{ formulario_login }}
+       <p class='row lead'> {{ formulario_login.username.label }} </p>
+       <p class='row'>  {{ formulario_login.username }}</p>
+       <p class='row lead'> {{ formulario_login.password.label }} </p>
+       <p class='row'>  {{ formulario_login.password }}</p>
+
+
+
+        
   
         <button class="btn btn-primary m-4" type="submit">Ingresar</button>
       
       </form>
   
   </div>
-
 </div>
+ 
 </section>
 
 
