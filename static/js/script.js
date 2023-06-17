@@ -144,8 +144,13 @@ function addToCarrito(infoProducto){
             }
         };
        if (indice!=0){
-        indice.cantidad+=1;
+        // console.log(typeof(indice.cantidad))
+        let cantidadvieja= Number(indice.cantidad);
+        cantidadvieja+=1;
+        let cantidadnueva=String(cantidadvieja)
+        indice.cantidad=cantidadnueva;
         // console.log('envio a guardar producto con cantidad modificada');
+        
         guardarEnLS(indice);
         
 

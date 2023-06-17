@@ -12,6 +12,7 @@ path('seleccion/<str:linea>',views.seleccion , name='seleccion'),
 path('gondola/<path:rubro>', views.gondola , name='gondola'),
 path('portalSearch', views.portalSearch, name='portalSearch'),
 path('logout',views.logoutView, name='logout'),
+path('servicios',views.servicios, name='servicios')
  
  
 ]
