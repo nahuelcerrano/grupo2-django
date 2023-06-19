@@ -32,7 +32,8 @@ class FormularioContacto(forms.Form):
     },
     widget=forms.TextInput(
       attrs={'class': 'form-control col-12 my-2 text-center',
-             'placeholder': 'Ingrese su nombre'}
+             'placeholder': 'Ingrese su nombre',
+             'pattern':'^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$'}
     )
   )
   
@@ -57,7 +58,8 @@ class FormularioContacto(forms.Form):
     required= True,
     widget=forms.TextInput(
       attrs={'class': 'form-control col-12 my-2 text-center',
-              'placeholder': 'Ingrese su telefono'}
+              'placeholder': 'Ingrese su telefono',
+              'pattern':'^[0-9]*$'}
     )
   )
 
