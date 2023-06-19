@@ -4,11 +4,14 @@
 
 {% block contenido %}
 
-<section 
+<section>
+
+   
+ <div
   {% load static%}
   class='img-fluid' 
   style='
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .10) 15%, rgba(0, 0, 0, 0.10) 25%), url({% static 'img/fondo.jpg' %});
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .30) 15%, rgba(0, 0, 0, .30) 25%), url({% static 'img/fondo.jpg' %});
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,16 +20,194 @@
     text-shadow: 1px 2px 3px black;
     color: white;
   '>
-  
+
   <div class='hero_text loginContainer'>
-    <h1 class='text-center pt-5'>Bienvenidos</h1>  
-    <h1 class='text-center'>a</h1>
     <h1 class='text-center pb-5'>Ferreteria MAXI</h1>
 
     <h2 class='text-center pb-5'>La ferreteria donde podés encontrar el cosito que va en el coso</h2>
     <a  href="lineas" class="btn btn-dark">Nuestros Productos</a>
     <a  href="servicios" class="btn btn-dark">Nuestros Servicios</a>  
   </div>
+</div>
+
+<div class='my-5'>
+  <h1 class='text-center'>Que vendemos</h1>
+  <div class='cards_conteiner my-5'>
+
+    {% load static %}
+    <div class="card_grid card_grid_home">
+      <div class="card_image img">
+        <img id="{{linea}}" src="{% static 'img/SANITARIOS.jpg' %}" alt="Card image cap">
+      </div>
+      <div class="card_text text-center">
+        <h3>Sanitarios</h3>
+      </div>
+    </div>
+
+    <div class="card_grid card_grid_home">
+      <div class="card_image img">
+        <img id="{{linea}}" src="{% static 'img/ACCESORIOS SIGAS.jpg' %}" alt="Card image cap">
+      </div>
+      <div class="card_text text-center">
+        <h3>Sigas</h3>
+      </div>
+    </div>
+
+    <div class="card_grid card_grid_home">
+      <div class="card_image img">
+        <img id="{{linea}}" src="{% static 'img/ACCESORIOS DE ZINC.jpg' %}" alt="Card image cap">
+      </div>
+      <div class="card_text text-center">
+        <h3>Accesorios de zinc</h3>
+      </div>
+    </div>
+
+    <div class="card_grid card_grid_home">
+      <div class="card_image img">
+        <img id="{{linea}}" src="{% static 'img/ACCESORIOS THERMOFUSION.jpg' %}" alt="Card image cap">
+      </div>
+      <div class="card_text text-center">
+        <h3>Thermofusion</h3>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="border border-warning border-2 opacity-50">
+
+<div class='my-1'>
+  <h1 class='text-center'>Nuestros servicios</h1>
+
+
+  <div class="container d-flex justify-content-center my-5">
+
+    <div class="card_service m-1">
+      <div class="card_ico text-center" ><img src='{% static 'img/atencion.png' %}' alt="" width='50%'> </div>
+        <div class="inner_text text-center">
+            <h5 class='my-3 text-black'>Asistencia al cliente</h5>
+            <p>Nuestros personal capacitado los ayudara a encontrar la mejor solucion para cada tipo de problema</p>
+        </div>
+    </div>   
+    
+    <div class="card_service m-1">
+      <div class="card_ico text-center" ><img src='{% static 'img/instalacion.png' %}' alt="" width='50%'> </div> 
+      <div class="inner_text text-center">
+        <h5 class='my-3 text-black'>Instalaciones</h5>
+        <p>Modernas intalaciones certificadas en Gestión de Medio Ambiente ISO 14001 y Gestión de Calidad ISO 9001</p>
+      </div>
+  </div>
+
+  <div class="card_service m-1">
+    <div class="card_ico text-center" ><img src='{% static 'img/envio.png' %}' alt="" width='50%'> </div> 
+      <div class="inner_text text-center">
+          <h5 class="my-3 text-black">Envios</h5>
+          <p>A todo el País en flota propia y al exterior</p>
+      </div>
+  </div>
+</div>
+</div>
+
+<hr class="border border-warning border-2 opacity-50">
+
+<div class='my-1'>
+<h1 class='text-center'>La opinion de nuestros clientes</h1>
+
+<div class="text-center my-4">
+  <div class="d-flex justify-content-center">
+    <!-- Carousel wrapper -->
+    <div id="carouselExample" class="carousel slide carousel-dark" data-bs-ride="carousel">
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <ul class="list-unstyled d-flex justify-content-center my-2">
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-half text-warning mx-1"></i>
+            </li>
+          </ul>
+          <p class="lead mx-4 mx-md-5">
+            "No puedo recomendar esta ferretería lo suficiente.
+            Tienen una amplia variedad de herramientas y equipos para cualquier proyecto industrial que necesite.
+            El personal es muy bien informado y siempre están dispuestos a ayudar a encontrar lo que se necesita.
+            Siempre me siento seguro sabiendo que puedo contar con ellos para mantener mi negocio funcionando sin problemas."
+          </p>
+          <p class="text-muted mb-0">- Elvio Lento</p>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <ul class="list-unstyled d-flex justify-content-center my-2">
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-half text-warning mx-1"></i>
+            </li>
+          </ul>
+          <p class="lead mx-4 mx-md-5">
+            "La atención al cliente es excepcional en esta ferretería.
+            Visito con frecuencia para comprar herramientas y suministros, y siempre me sorprende lo servicial que es el personal.
+            Me han ayudado a encontrar soluciones creativas a algunos problemas en mi negocio.
+            ¡Incluso me han llamado después de mis compras para asegurarse de que todo estaba funcionando bien!"
+          </p>
+          <p class="text-muted mb-0">- Vicente Levidente</p>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <ul class="list-unstyled d-flex justify-content-center my-2">
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-fill text-warning mx-1"></i>
+            </li>
+            <li>
+              <i class="bi bi-star-half text-warning mx-1"></i>
+            </li>
+          </ul>
+          <p class="lead mx-4 mx-md-5">
+            "La mejor ferretería industrial que he visitado.
+            Tienen una enorme selección de productos a precios muy razonables.
+            Incluso cuando no tienen algo en stock, son muy buenos para conseguirlo rápidamente.
+            El personal siempre es muy amable y educado. ¡No puedo imaginar comprar de otros! ¡Altamente recomendado!"
+          </p>
+          <p class="text-muted mb-0">- Raimundo Lares</p>
+        </div>
+      </div>
+      <!-- Inner -->
+    </div>
+    <!-- Carousel wrapper -->
+  </div>
+</div>
 
 </section>
 

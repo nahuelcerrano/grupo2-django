@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
 
 header{
   background-color: #f8e89f;
@@ -71,13 +72,17 @@ html::-webkit-scrollbar-track {
 .card_grid {
   display: grid;
   grid-template-rows: 20rem 3rem;
-  grid-template-areas: "image" "boton";
+  grid-template-areas: "image" "text" "boton";
   border-radius: .4rem;
   background-color: #fff;
   transition: 0.5s ease;
   overflow: hidden;
   border-radius: 0;
   justify-content: start;
+}
+
+.card_grid_home {
+  grid-template-rows: 20rem 6rem;
 }
 
 .card_grid div {
@@ -92,6 +97,13 @@ html::-webkit-scrollbar-track {
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+.card_text {
+  text-align: center;
+  grid-area: text;
+  font-family: "Maven Pro", sans-serif;
+  padding: 0 10px;
 }
 
 .card_btn {
@@ -126,10 +138,13 @@ html::-webkit-scrollbar-track {
 }
 
 .hero_text h1{
-  text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
+  text-shadow: 1px 1px 2px #000, 0 0 1em #e2ce75, 0 0 0.2em #e2ce75;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .hero_text h2{
   text-shadow: 1px 1px 2px #000, 0 0 1em #b7b198, 0 0 0.2em #b7b198;
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .loginContainer{
@@ -159,9 +174,75 @@ html::-webkit-scrollbar-track {
 }
  
  
-
-  .contenedorDeImagenes{
+.contenedorDeImagenes{
     height: 100px;
     max-width: 100px;
-  }
+}
+
+/* card home styles */
+
+.card_service{
+  background-color: rgb(191, 177, 56);
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  flex: 25%;
+  /* height: 100px; */
+  margin: 0 10px;
+  overflow: hidden;
+  width: 250px;
+}
+
+.contenedorDeImagenes{
+  height: 100px;
+  max-width: 100px;
+}
+
+/* card home styles */
+
+.card_service{
+  background-color: white;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  flex: 25%;
+  height: 400px;
+  margin: 0 10px;
+  overflow: hidden;
+  width: 250px;
+}
+.card_ico {
+   
+  background-position: center;
+  background-size: cover;
+  height: 50%;
+}
+
+.card_text {
+  text-align: center;
+  grid-area: text;
+  font-family: "Maven Pro", sans-serif;
+  padding: 0 10px;
+}
+
+.inner_text {
+  background: white;
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 1;
+  padding: 0 .5rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.inner_text p {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  height: 55px;
+}
  
