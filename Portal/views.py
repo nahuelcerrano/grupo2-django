@@ -47,7 +47,24 @@ def about(request):
 def seleccion(request,linea):   
            
         rubro=Producto.objects.order_by().values_list('rubro', flat=True).distinct().filter(linea=linea)
-        context={'rubros':rubro}
+        # print(rubro)
+        imagenes=[]
+        listaDeRubros=[]
+        
+        for item in rubro:
+            # print(item)
+            listaDeRubros.append(item)
+            
+            imagen=Producto.objects.distinct().filter(rubro=item)[0]
+            # print(imagen.imagen)
+            imagenes.append(imagen.imagen)
+        
+        # print(imagenes)
+        diccionario=dict(zip(listaDeRubros,imagenes))
+        print(diccionario)
+        
+         
+        context={'rubros':rubro, 'diccionarios':diccionario}
         return render(request,'Portal/mostrarRubros.html', context)
     
 @login_required    
@@ -72,7 +89,7 @@ def portalSearch(request):
         desc=Producto.objects.all().filter(descripcion__icontains=keyword)
         articulos=cod.union(linea,rubro,desc)
         context ={'articulos':articulos }
-        print(articulos)
+        # print(articulos)
         return render(request,'Portal\mostrarArticulos.html', context)
     pass
 
@@ -116,6 +133,12 @@ def loginView(request):
 def logoutView(request):
     logout(request)  
     return redirect('loginView')
-    
 
+@login_required    
+def servicios(request):
+    servicios=Servicio.objects.all()
+    # print(servicios)
+    context={'servicios': servicios}
+    
+    return render (request, 'Portal/mostrarServicios.html',context)
         

@@ -3,27 +3,27 @@
 {% block contenido %}
 
 <section>
+
     
     <div class="d-flex justify-content-center">
          <h1>Seleccione un Rubro</h1>
     </div>
-    
-    <div class='cards_conteiner my-5'>
-        {% for rubro in rubros %}
-        <div class="card_grid">
+  <div class='cards_conteiner my-5  w-100'>
+        {% for key , value  in diccionarios.items %}
+        <div class="card_grid mw-100 ">
           {% load static %}
-          <div class="card_image img">
-            <img id="{{rubro}}"src='https://dummyimage.com/263' alt="Card image cap">
+          <div class="card_image img mw-100 ">
+            <img id="{{value}}"src='/static/img/{{value}}.jpg' alt="Card image cap" class='w-100'>
           </div>
-          <div class="card_btn">
-            <a href='../gondola/{{rubro}}' class='btn_hover bn18 text-dark text-decoration-none d-flex align-items-center justify-content-center'>{{rubro}}</a>
+          <div class="card_btn ">
+            <a href='../gondola/{{key}}' class='btn_hover bn18 text-dark text-decoration-none d-flex align-items-center justify-content-center btn-block '>{{key}}</a>
           </div>
         </div>
         {%endfor%}
-      </div>
-    </section>
-
+  </div>
 </section>
+
+  
 
 
 {% endblock contenido  %}

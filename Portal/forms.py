@@ -85,7 +85,7 @@ class LoginForm(forms.Form):
 
   password=forms.CharField(
     max_length=50,
-    label='Password',
+    label='Contraseña',
     required= True,
     widget=forms.PasswordInput(
       attrs={'class': 'form-control my-2 text-center',
