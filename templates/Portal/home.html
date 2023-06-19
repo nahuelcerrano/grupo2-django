@@ -4,28 +4,213 @@
 
 {% block contenido %}
 
-<section 
-  {% load static%}
-  class='img-fluid' 
-  style='
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .10) 15%, rgba(0, 0, 0, 0.10) 25%), url({% static 'img/fondo.jpg' %});
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    text-shadow: 1px 2px 3px black;
-    color: white;
-  '>
+<section>
   
-  <div class='hero_text loginContainer'>
-    <h1 class='text-center pt-5'>Bienvenidos</h1>  
-    <h1 class='text-center'>a</h1>
-    <h1 class='text-center pb-5'>Ferreteria MAXI</h1>
+  
+  <div
+    {% load static%}
+    class='img-fluid' 
+    style='
+      background-image: linear-gradient(to bottom,rgba(0, 0, 0, .30) 15%, rgba(0, 0, 0, .30) 25%), url({% static 'img/fondo.jpg' %});
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      text-shadow: 1px 2px 3px black;
+      color: white;
+    '>
 
-    <h2 class='text-center pb-5'>La ferreteria donde podés encontrar el cosito que va en el coso</h2>
-    <a  href="lineas" class="btn btn-dark">Nuestros Productos</a>  
+    <div class='hero_text'>
+      <h1 class='text-center pb-5'>Ferreteria MAXI</h1>
+
+      <h2 class='text-center pb-5'>La ferreteria donde podés encontrar el cosito que va en el coso</h2>
+      <a  href="lineas" class="btn btn-dark">Nuestros Productos</a>  
+    </div>
   </div>
+
+  <div class='my-5'>
+    <h1 class='text-center'>Que vendemos</h1>
+    <div class='cards_conteiner my-5'>
+
+      {% load static %}
+      <div class="card_grid card_grid_home">
+        <div class="card_image img">
+          <img id="{{linea}}" src="{% static 'img/SANITARIOS.jpg' %}" alt="Card image cap">
+        </div>
+        <div class="card_text text-center">
+          <h3>Sanitarios</h3>
+          <h5>Lorem ipsum dolor sit ame, consectetur adipisicing elit.</h5>
+        </div>
+      </div>
+
+      <div class="card_grid card_grid_home">
+        <div class="card_image img">
+          <img id="{{linea}}" src="{% static 'img/ACCESORIOS SIGAS.jpg' %}" alt="Card image cap">
+        </div>
+        <div class="card_text text-center">
+          <h3>Sigas</h3>
+          <h5>Lorem ipsum dolor sit ame, consectetur adipisicing elit.</h5>
+        </div>
+      </div>
+
+      <div class="card_grid card_grid_home">
+        <div class="card_image img">
+          <img id="{{linea}}" src="{% static 'img/ACCESORIOS DE ZINC.jpg' %}" alt="Card image cap">
+        </div>
+        <div class="card_text text-center">
+          <h3>Accesorios de zinc</h3>
+          <h5>Lorem ipsum dolor sit ame, consectetur adipisicing elit.</h5>
+        </div>
+      </div>
+
+      <div class="card_grid card_grid_home">
+        <div class="card_image img">
+          <img id="{{linea}}" src="{% static 'img/ACCESORIOS THERMOFUSION.jpg' %}" alt="Card image cap">
+        </div>
+        <div class="card_text text-center">
+          <h3>Thermofusion</h3>
+          <h5>Lorem ipsum dolor sit ame, consectetur adipisicing elit.</h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="border border-warning border-2 opacity-50">
+  
+  <div class='my-5'>
+    <h1 class='text-center'>Nuestros servicios</h1>
+
+    
+    <div class="container d-flex justify-content-center my-5">
+
+      <div class="card_service ">
+          <div class="card_ico" >
+          </div>
+          <div class="inner_text">
+              <h5 class='my-3 text-black'>Asistencia al cliente</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam qui culpa pariatur velit,
+                  consequuntur nulla.</p>
+          </div>
+      </div>
+
+      <div class="card_service">
+          <div class="card_ico"></div>
+          <div class="inner_text">
+            <h5 class='my-3 text-black'>Instalaciones</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam qui culpa pariatur velit,
+                consequuntur nulla.</p>
+          </div>
+      </div>
+      
+      <div class="card_service">
+          <div class="card_ico"></div>
+          <div class="inner_text">
+              <h5 class="my-3 text-black">Envios</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam qui culpa pariatur velit,
+                  consequuntur nulla.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="border border-warning border-2 opacity-50">
+
+  <div class='my-5'>
+    <h1 class='text-center'>La opinion de nuestros clientes</h1>
+
+    <div class="text-center my-4">
+      <div class="d-flex justify-content-center">
+        <!-- Carousel wrapper -->
+        <div id="carouselExample" class="carousel slide carousel-dark" data-bs-ride="carousel">
+          <!-- Inner -->
+          <div class="carousel-inner">
+            <!-- Single item -->
+            <div class="carousel-item active">
+              <ul class="list-unstyled d-flex justify-content-center my-2">
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-half text-warning mx-1"></i>
+                </li>
+              </ul>
+              <p class="lead mx-4 mx-md-5">
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+                numquam iure provident voluptate esse quasi, voluptas nostrum quisquam!"
+              </p>
+              <p class="text-muted mb-0">- Anna Morian</p>
+            </div>
+  
+            <!-- Single item -->
+            <div class="carousel-item">
+              <ul class="list-unstyled d-flex justify-content-center my-2">
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-half text-warning mx-1"></i>
+                </li>
+              </ul>
+              <p class="lead mx-4 mx-md-5">
+                "Neque cupiditate assumenda in maiores repudiandae mollitia adipisci maiores
+                repudiandae mollitia consectetur adipisicing architecto elit sed adipiscing
+                elit."
+              </p>
+              <p class="text-muted mb-0">- Teresa May</p>
+            </div>
+  
+            <!-- Single item -->
+            <div class="carousel-item">
+              <ul class="list-unstyled d-flex justify-content-center my-2">
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-fill text-warning mx-1"></i>
+                </li>
+                <li>
+                  <i class="bi bi-star-half text-warning mx-1"></i>
+                </li>
+              </ul>
+              <p class="lead mx-4 mx-md-5">
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur est laborum neque cupiditate assumenda in
+                maiores."
+              </p>
+              <p class="text-muted mb-0">- Kate Allise</p>
+            </div>
+          </div>
+          <!-- Inner -->
+        </div>
+        <!-- Carousel wrapper -->
+      </div>
+    </div>
 
 </section>
 

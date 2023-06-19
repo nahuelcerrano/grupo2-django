@@ -3,13 +3,13 @@
   <nav class="navbar navbar-expand-lg" style='background-color: #f8e89f;'>
     <div class="container-fluid">
       {% if user.is_authenticated %}
-       <a class="navbar-brand mr-4 logo fs-3" href="/inicio">
-        <img src="{% static  'img/logoAmarilloChico.png' %}" width=50%%>
-       </a>
-      {% else %}
-       <a class="navbar-brand logo" href="/">
+      <a class="navbar-brand logo" href="/inicio">
         <img src="{% static 'img/logoAmarilloChico.png' %}" width=50%%>
-       </a>
+      </a>
+      {% else %}
+      <a class="navbar-brand logo" href="/">
+        <img src="{% static 'img/logoAmarilloChico.png' %}" width=50%%>
+      </a>
       {% endif %}
 
 
@@ -19,21 +19,25 @@
         
        
        
-{% if user.is_authenticated  %}
-      <div style="margin-right: 2vh;">
-        <h5>Bienvenido {{user.username}}</h5>
-      </div>
+      {% if user.is_authenticated %}
       <a class="navbar-brand mx-3" href="#">
         <i class="bi bi-cart-fill" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnModalBoot"></i>
       </a>
-      <form class="d-flex" role='search' action={% url 'portalSearch' %} method='get'>
+      {% endif %}
+      {% if user.is_authenticated  %}
+      <form class="d-flex me-3" role='search' action={% url 'portalSearch' %} method='get'>
+        
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="buscar" name="keyword">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
+
       </form>
       {% endif %}
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right: 3vh;">
- 
+        <ul class="navbar-nav ms-auto mb-lg-0 align-items-center text-center" style="margin-right: 3vh;">
+
+          
+
           <li class="nav-item">
             <a class="nav-link active" href="/about"> Sobre Nosotros </a>
           </li>
@@ -43,8 +47,8 @@
 
           {% if user.is_staff %}
           <li class="nav-item">
-             <a class='nav-link active' href='/abm'>Panel de Administrador</a>
-           </li>
+            <a class='nav-link active' href='/abm'>Panel de Administrador</a>
+          </li>
           {% endif %}
 
           {% if user.is_authenticated %}
