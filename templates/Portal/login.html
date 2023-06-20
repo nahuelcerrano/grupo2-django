@@ -7,8 +7,8 @@
 {% load static%}
   class='img-fluid pt-5' 
   style='
-    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .10) 15%, rgba(0, 0, 0, 0.10) 25%), url({% static 'img/fondo.jpg' %});
-    height: 70vh;
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, .30) 15%, rgba(0, 0, 0, 0.30) 25%), url({% static 'img/fondo.jpg' %});
+    height: 90vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,31 +16,34 @@
     text-shadow: 1px 2px 3px black;
     color: white;
   '>
-{% if messages %}
-<div class="text-md-center">
-  <h2>{{messages}} </h2>
-</div>
-{% endif %}
-<div class='loginContainer mx-auto '>
-<div class="text-md-center "> <h1 class="tituloBienvenidos">Bienvenidos a Ferreteria Maxi</h1> </div>
-  <div class="contenedorContacto form-container" >
   
-      <form class='col-5 text-center' id='formulario_login' name='formulario_login' action='{% url 'loginView' %}' method='POST'>
+  {% if messages %}
+  <div class="text-md-center">
+    <h2>{{messages}} </h2>
+  </div>
+  {% endif %}
+  
+  <div class='loginContainer mx-auto my-5 p-3'>
+    <div div class="text-md-center "> <h1 class="tituloBienvenidos">Bienvenidos a Ferreteria Maxi</h1> </div>
+    <div class="contenedorContacto form-container" >
       
+      <form class='col-5 text-center' id='formulario_login' name='formulario_login' action='{% url 'loginView' %}' method='POST'>
+        
         {% csrf_token %}
-       <p class='row lead'> {{ formulario_login.username.label }} </p>
-       <p class='row'>  {{ formulario_login.username }}</p>
-       <p class='row lead'> {{ formulario_login.password.label }} </p>
-       <p class='row'>  {{ formulario_login.password }}</p>
-
-
+        <p class='row lead'> {{ formulario_login.username.label }} </p>
+        <p class='row'>  {{ formulario_login.username }}</p>
+        <p class='row lead'> {{ formulario_login.password.label }} </p>
+        <p class='row'>  {{ formulario_login.password }}</p>
+        
+        
 
         
   
         <button class="btn btn-primary m-4" type="submit">Ingresar</button>
       
       </form>
-  
+
+    </div>
   </div>
 </div>
  
