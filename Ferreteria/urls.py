@@ -20,5 +20,7 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Portal.urls')),
-    path('', include('Administrador.urls'))
+    path('', include('Administrador.urls')),
+    path('api-auth', include('rest_framework.urls')),
+    path('api/', include('recursos_api.urls'))
 ]

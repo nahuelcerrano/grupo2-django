@@ -6,21 +6,21 @@ from django.views.generic.list import ListView
 from Portal.forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 @login_required
 def home(request):
-    # if request.user != 'AnonymousUser':
-    #     print("anonimo")
-    #     return redirect(to='loginView')
-                   
+                       
     return render(request, 'Portal/home.html')
 
 def contacto(request):
-    
+     
     if request.method == 'POST':
         formulario_contacto = FormularioContacto(request.POST)
-            #Acá iria la validación
+        
+        return redirect('loginView')
+                        
     else:
         
         formulario_contacto = FormularioContacto()
